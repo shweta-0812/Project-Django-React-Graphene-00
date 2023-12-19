@@ -1,7 +1,9 @@
 # temporary exclusion
-./berry_information_engine/lm_transformer/fine_tuned_lms/
+berry_information_engine/lm_transformer/fine_tuned_lms/
+
 # ide files
 .idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
