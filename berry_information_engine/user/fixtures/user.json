@@ -1,0 +1,25 @@
+[{
+  "model": "user.UserDetail",
+  "id": 1,
+  "fields": {
+    "first_name": "Tom",
+    "last_name": "Summer",
+    "email": "tom.summer@gmail.com"
+  }
+}, {
+  "model": "user.UserDetail",
+  "id": 2,
+  "fields": {
+    "first_name": "Deb",
+    "last_name": "Winter",
+    "email": "deb.winter@gmail.com"
+  }
+}, {
+  "model": "user.UserDetail",
+  "id": 3,
+  "fields": {
+    "first_name": "Uni",
+    "last_name": "Moss",
+    "email": "uni.moss@gmail.com"
+  }
+}]
