@@ -1,7 +1,7 @@
 import graphene
 from graphene_django.types import DjangoObjectType
-# from graphql_relay.node.node import from_global_id
-from user.models import UserDetail
+from user.service.user_service import create_user, update_user
+from user.models.user_detail_model import UserDetail
 
 
 class UserDetailType(DjangoObjectType):
@@ -17,9 +17,8 @@ class CreateUserDetail(graphene.Mutation):
         first_name = graphene.String()
         last_name = graphene.String()
 
-    def mutate(self, info, first_name, last_name):
-        user_detail = UserDetail(first_name=first_name, last_name=last_name, isDone=False)
-        user_detail.save()
+    def mutate(self, info, first_name, last_name, email):
+        user_detail = create_user(first_name=first_name, last_name=last_name, email=email,)
         ok = True
         return CreateUserDetail(user_detail=user_detail, ok=ok)
 
@@ -29,15 +28,12 @@ class UpdateUserDetail(graphene.Mutation):
     ok = graphene.Boolean()
 
     class Arguments:
-        first = graphene.String()
-        IsDone = graphene.Boolean()
+        first_name = graphene.String()
 
-    def mutate(self, info, id, IsDone):
-        user_detail = UserDetail.objects.get(pk=id)
-        user_detail.isDone = IsDone
-        user_detail.save()
+    def mutate(self, info, id, first_name, last_name, email):
+        updated_user_detail = update_user(pk=id, first_name=first_name, last_name=last_name, email=email)
         ok = True
-        return UpdateUserDetail(user_detail=user_detail, ok=ok)
+        return UpdateUserDetail(user_detail=updated_user_detail, ok=ok)
 
 
 class Query(graphene.ObjectType):

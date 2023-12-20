@@ -8,6 +8,7 @@ def save_predicted_answer(predicted_answer, question_asked, question_context):
     resp = create_lm_transformer_detail(predicted_answer, question_asked, question_context)
     return True if resp else False
 
+
 # Step 1: Load Pretrained Model and Tokenizer
 # Step 2: Prepare training dataset
 # Step 3: Prep Training Arguments
@@ -61,4 +62,3 @@ def get_predicted_answer_for_question_and_context(question_context, question_ask
     predicted_answer = predict_answer(fine_tuned_model, model_tokenizer, question_asked, question_context)
     save_predicted_answer(predicted_answer, question_asked, question_context)
     return predicted_answer, question_context, question_asked
-
