@@ -15,10 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from graphene_django.views import GraphQLView
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("graphql", GraphQLView.as_view(graphiql=True)),
-]
+urlpatterns = []
+
+# admin site
+urlpatterns += [path('admin/', admin.site.urls)]
+
+# graphql
+urlpatterns += [path('graphql/', GraphQLView.as_view(graphiql=True))]
+# django debug toolbar
+urlpatterns += [path('__debug__/', include('debug_toolbar.urls', namespace='debug'))]
+
+# django silk
+urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]

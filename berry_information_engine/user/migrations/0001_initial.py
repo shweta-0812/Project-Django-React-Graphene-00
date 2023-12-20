@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="User",
+            name="UserDetail",
             fields=[
                 (
                     "id",
@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ),
                 ("first_name", models.CharField(max_length=30)),
                 ("last_name", models.CharField(max_length=30)),
+                ("email", models.EmailField(max_length=150)),
             ],
         ),
     ]
