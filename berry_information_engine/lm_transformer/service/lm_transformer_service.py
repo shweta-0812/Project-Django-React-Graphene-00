@@ -28,9 +28,6 @@ def save_predicted_answer(predicted_answer, question_asked, question_context):
 # Step 5: Save the Fine-Tuned Model Locally
 # model.save_pretrained("./custom_model")
 
-def push_fine_tuned_model_to_huggingface_hub():
-
-
 def load_fine_tuned_model_and_tokenizer():
     # Load the model
     model_checkpoint = "/Users/shwetasingh/Projects/Project-Berry/berry_information_engine/lm_transformer/fine_tuned_lms/checkpoint-33276"
